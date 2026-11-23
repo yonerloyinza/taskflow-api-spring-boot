@@ -13,7 +13,7 @@ import java.util.Objects;
  * aplicacion.
  */
 @Entity
-@Table(name = "Task")
+@Table(name = "\"Task\"")
 public class Task {
 
     @Id
