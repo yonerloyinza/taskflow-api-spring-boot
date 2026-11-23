@@ -8,6 +8,7 @@ import com.taskflow.api.service.TaskService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -82,8 +83,8 @@ public class TaskController {
      * @return DTO de la tarea encontrada
      */
     @GetMapping("/{id}")
-    public TaskDto getById(@PathVariable final String id) {
-        return taskService.getById(id);
+    public TaskDto getById(@PathVariable final UUID id) {
+        return taskService.getById(id.toString());
     }
 
     /**
@@ -94,8 +95,8 @@ public class TaskController {
      * @return DTO de la tarea actualizada
      */
     @PatchMapping("/{id}")
-    public TaskDto updatePartial(@PathVariable final String id, @Valid final UpdateTaskRequest request) {
-        return taskService.updatePartial(id, request);
+    public TaskDto updatePartial(@PathVariable final UUID id, @Valid final UpdateTaskRequest request) {
+        return taskService.updatePartial(id.toString(), request);
     }
 
     /**
@@ -105,7 +106,7 @@ public class TaskController {
      */
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable final String id) {
-        taskService.delete(id);
+    public void delete(@PathVariable final UUID id) {
+        taskService.delete(id.toString());
     }
 }
