@@ -26,14 +26,14 @@ public abstract class AbstractIntegrationTest {
             .withPassword("taskflow");
 
     @DynamicPropertySource
-    static void registrarPropiedades(DynamicPropertyRegistry registry) {
-        String jdbcUrl = postgres.getJdbcUrl();
-        registry.add("spring.datasource.url", jdbcUrl);
-        registry.add("spring.datasource.username", postgres.getUsername());
-        registry.add("spring.datasource.password", postgres.getPassword());
-        registry.add("spring.flyway.url", jdbcUrl);
-        registry.add("spring.flyway.user", postgres.getUsername());
-        registry.add("spring.flyway.password", postgres.getPassword());
-        registry.add("springdoc.swagger-ui.enabled", "false");
+    static void registrarPropiedades(final DynamicPropertyRegistry registry) {
+        final String jdbcUrl = postgres.getJdbcUrl();
+        registry.add("spring.datasource.url", () -> jdbcUrl);
+        registry.add("spring.datasource.username", () -> postgres.getUsername());
+        registry.add("spring.datasource.password", () -> postgres.getPassword());
+        registry.add("spring.flyway.url", () -> jdbcUrl);
+        registry.add("spring.flyway.user", () -> postgres.getUsername());
+        registry.add("spring.flyway.password", () -> postgres.getPassword());
+        registry.add("springdoc.swagger-ui.enabled", () -> "false");
     }
 }

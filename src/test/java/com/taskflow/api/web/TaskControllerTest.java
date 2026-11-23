@@ -1,5 +1,6 @@
 package com.taskflow.api.web;
 
+import com.taskflow.api.domain.TaskStatus;
 import com.taskflow.api.dto.CreateTaskRequest;
 import com.taskflow.api.dto.TaskDto;
 import com.taskflow.api.dto.UpdateTaskRequest;
@@ -186,7 +187,7 @@ class TaskControllerTest extends AbstractIntegrationTest {
         mockMvc.perform(MockMvcRequestBuilders.patch("/tasks/" + id)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(new UpdateTaskRequest(
-                        null, null, "hecha", null, null, null))))
+                        null, null, TaskStatus.HECHA, null, null, null))))
                 .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isOk())
                 .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath("$.status")
                         .value("hecha"));
