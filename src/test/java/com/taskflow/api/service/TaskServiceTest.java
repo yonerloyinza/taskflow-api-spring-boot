@@ -114,8 +114,6 @@ class TaskServiceTest {
                 org.mockito.ArgumentMatchers.any(Specification.class),
                 org.mockito.ArgumentMatchers.any(org.springframework.data.domain.Pageable.class)))
                 .willReturn(new PageImpl<>(List.of(task), PageRequest.of(0, 10), 1));
-        org.mockito.BDDMockito.given(taskMapper.toDtoList(org.mockito.ArgumentMatchers.anyList()))
-                .willReturn(List.of(taskDto));
         org.mockito.BDDMockito.given(taskMapper.toPaginatedResponse(
                 org.mockito.ArgumentMatchers.any(org.springframework.data.domain.Page.class),
                 org.mockito.ArgumentMatchers.anyInt(), org.mockito.ArgumentMatchers.anyInt()))
