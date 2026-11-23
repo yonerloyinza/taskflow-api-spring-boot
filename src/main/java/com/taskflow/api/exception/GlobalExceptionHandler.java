@@ -120,6 +120,20 @@ public class GlobalExceptionHandler {
     }
 
     /**
+     * Convierte argumentos ilegales (filtros de estado o prioridad invalidos)
+     * en 400.
+     *
+     * @param exception excepcion de argumento ilegal
+     * @param request peticion HTTP en curso
+     * @return respuesta 400 con formato ErrorResponse
+     */
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgument(final IllegalArgumentException exception,
+            final HttpServletRequest request) {
+        return fail(HttpStatus.BAD_REQUEST, List.of(exception.getMessage()), request);
+    }
+
+    /**
      * Convierte recursos inexistentes en 404.
      *
      * @param exception excepcion de dominio
