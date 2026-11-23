@@ -32,8 +32,10 @@ import jakarta.persistence.criteria.Predicate;
 @Service
 public class TaskService {
 
+    /** Repositorio de persistencia de tareas. */
     private final TaskRepository taskRepository;
 
+    /** Conversor entre entidades y DTOs de tarea. */
     private final TaskMapper taskMapper;
 
     /**

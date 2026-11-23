@@ -3,8 +3,6 @@ package com.taskflow.api.domain;
 /**
  * Prioridad de una tarea del ecosistema TaskFlow. Coincide con los valores del
  * tipo enumerado {@code TaskPriority} de la base de datos y del contrato OpenAPI.
- *
- * @param valor representacion almacenada en la base de datos
  */
 public enum TaskPriority {
 
@@ -37,7 +35,7 @@ public enum TaskPriority {
     /**
      * Devuelve la representacion almacenada en la base de datos.
      *
-     * @param valor representacion en base de datos
+     * @return representacion en base de datos
      */
     public String getValor() {
         return valor;

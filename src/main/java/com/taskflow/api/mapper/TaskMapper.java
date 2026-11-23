@@ -8,8 +8,6 @@ import com.taskflow.api.dto.PageMeta;
 import com.taskflow.api.dto.PaginatedTasksResponse;
 import com.taskflow.api.dto.TaskDto;
 import com.taskflow.api.dto.UpdateTaskRequest;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,9 +102,9 @@ public class TaskMapper {
     /**
      * Construye la respuesta paginada a partir de una pagina de resultados.
      *
-     * @param page   pagina de entidades de tarea
-     * @param page   numero de pagina actual (a partir de 1)
-     * @param limit  tamanio de pagina solicitado
+     * @param pageResult pagina de entidades de tarea
+     * @param pageNumber numero de pagina actual (a partir de 1)
+     * @param limit      tamanio de pagina solicitado
      * @return respuesta paginada con datos y metadatos
      */
     public PaginatedTasksResponse toPaginatedResponse(final Page<Task> pageResult, final int pageNumber,

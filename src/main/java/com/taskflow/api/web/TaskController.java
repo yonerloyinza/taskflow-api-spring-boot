@@ -31,6 +31,7 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public class TaskController {
 
+    /** Servicio de negocios de tareas. */
     private final TaskService taskService;
 
     /**
@@ -50,7 +51,7 @@ public class TaskController {
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TaskDto create(@Valid CreateTaskRequest request) {
+    public TaskDto create(@Valid final CreateTaskRequest request) {
         return taskService.create(request);
     }
 
@@ -93,7 +94,7 @@ public class TaskController {
      * @return DTO de la tarea actualizada
      */
     @PatchMapping("/{id}")
-    public TaskDto updatePartial(@PathVariable final String id, @Valid UpdateTaskRequest request) {
+    public TaskDto updatePartial(@PathVariable final String id, @Valid final UpdateTaskRequest request) {
         return taskService.updatePartial(id, request);
     }
 

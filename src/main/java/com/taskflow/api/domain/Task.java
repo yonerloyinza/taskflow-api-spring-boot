@@ -11,16 +11,6 @@ import java.util.Objects;
  * Entidad de una tarea del ecosistema TaskFlow. Se persiste en la tabla
  * {@code Task} de PostgreSQL con identificador de texto generado por la
  * aplicacion.
- *
- * @param id          identificador unico de la tarea
- * @param title       titulo de la tarea
- * @param description descripcion opcional de la tarea
- * @param status      estado actual de la tarea
- * @param priority    prioridad de la tarea
- * @param assignee    responsable asignado a la tarea
- * @param dueDate     fecha límite de entrega
- * @param createdAt   instante de creacion
- * @param updatedAt   instante de ultima actualizacion
  */
 @Entity
 @Table(name = "Task")
