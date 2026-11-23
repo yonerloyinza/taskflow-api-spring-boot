@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -52,7 +53,7 @@ public class TaskController {
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TaskDto create(@Valid final CreateTaskRequest request) {
+    public TaskDto create(@Valid @RequestBody final CreateTaskRequest request) {
         return taskService.create(request);
     }
 
@@ -95,7 +96,7 @@ public class TaskController {
      * @return DTO de la tarea actualizada
      */
     @PatchMapping("/{id}")
-    public TaskDto updatePartial(@PathVariable final UUID id, @Valid final UpdateTaskRequest request) {
+    public TaskDto updatePartial(@PathVariable final UUID id, @Valid @RequestBody final UpdateTaskRequest request) {
         return taskService.updatePartial(id.toString(), request);
     }
 
