@@ -79,7 +79,7 @@ springdoc:
   packages-to-scan: com.taskflow.api
 
 taskflow:
-  service-name: ${SERVICE_NAME:taskflow-api-spring-boot}
+  service-name: ${SERVICE_NAME:taskflow-api-springboot}
   cors:
     allowed-origins: ${CORS_ORIGINS:*}
   rate-limit:

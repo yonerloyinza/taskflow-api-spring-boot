@@ -36,7 +36,7 @@ public class HealthController {
      * @param service nombre del servicio que se reporta en la respuesta
      */
     public HealthController(final JdbcTemplate jdbcTemplate,
-            @Value("${taskflow.service-name:taskflow-api-spring-boot}") final String service) {
+            @Value("${taskflow.service-name:taskflow-api-springboot}") final String service) {
         this.jdbcTemplate = jdbcTemplate;
         this.service = service;
     }

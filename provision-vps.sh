@@ -179,6 +179,8 @@ if [ ! -f "$ENV_FILE" ]; then
 
 SPRING_PROFILES_ACTIVE=production
 SERVER_PORT=3000
+SERVICE_NAME=taskflow-api-springboot
+TRAEFIK_HOST=taskflow-api-springboot.xprad.com
 
 # Reemplace POOLER_HOST y DIRECT_HOST con los endpoints de su proveedor (InsForge/Supabase)
 DATABASE_URL=postgresql://POOLER_HOST:6543/postgres?sslmode=require
@@ -229,4 +231,4 @@ log "Siguientes pasos:"
 log "  1. Edite $ENV_FILE con DATABASE_URL, DIRECT_URL y DATABASE_PASSWORD de su proveedor (InsForge/Supabase)."
 log "  2. Asegurese de que el repo este clonado en $REPO_DIR."
 log "  3. Despliegue: cd $REPO_DIR && docker compose up -d --build --no-deps api-springboot"
-log "  4. Verifique: curl -sf https://<tu-host>/health | grep '\"status\":\"ok\"'"
+log "  4. Verifique: curl -sf https://taskflow-api-springboot.xprad.com/health | grep '\"status\":\"ok\"'"

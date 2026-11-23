@@ -10,5 +10,6 @@
 - **Documentación API:** SpringDoc OpenAPI 3 — `/v3/api-docs`, `/swagger-ui.html` (solo dev).
 - **Migraciones:** Flyway — archivos SQL en `src/main/resources/db/migration`, ejecutados en startup con `DIRECT_URL`.
 - **Red:** Traefik termina TLS y enruta HTTPS → puerto interno 3000 del contenedor (sin exponer puertos en el host).
+- **Dominio público:** `https://taskflow-api-springboot.xprad.com` — `Host(...)` en el label de Traefik, configurable con `TRAEFIK_HOST` (por defecto `taskflow-api-springboot.xprad.com`). El servicio se reporta como `taskflow-api-springboot` en `GET /health`.
 - **CI/CD:** GitHub Actions (.github/workflows/deploy.yml) → SSH al VPS → `git pull` + `docker compose up -d --build --no-deps api-springboot` + `docker image prune -f` en `/opt/taskflow`. Build local en VPS, sin Docker Hub / ghcr.io.
 - **Prohibido:** Monorepos, SQLite, SDKs propietarios, migraciones manuales sin Flyway, Render, SnapDeploy, registros Docker externos.
