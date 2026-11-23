@@ -9,18 +9,13 @@
     <module name="JavadocPackage"/>
 
     <module name="TreeWalker">
-        <module name="JavadocType">
-            <property name="scope" value="public"/>
-        </module>
+        <module name="JavadocType"/>
         <module name="JavadocMethod">
-            <property name="scope" value="public"/>
             <property name="allowMissingParamTags" value="true"/>
             <property name="allowMissingThrowsTags" value="true"/>
             <property name="allowMissingReturnTag" value="true"/>
         </module>
-        <module name="JavadocVariable">
-            <property name="scope" value="public"/>
-        </module>
+        <module name="JavadocVariable"/>
 
         <module name="ConstantName"/>
         <module name="LocalVariableName"/>

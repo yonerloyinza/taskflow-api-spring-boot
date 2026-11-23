@@ -140,6 +140,9 @@ public class RateLimitFilter extends OncePerRequestFilter {
         return request.getRemoteAddr();
     }
 
+    /**
+     * Par bucket en memoria con su marca de ultimo acceso.
+     */
     private static final class Entry {
 
         private final Bucket bucket;
