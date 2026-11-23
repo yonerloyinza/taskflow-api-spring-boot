@@ -88,7 +88,6 @@
 
         <module name="RegexpSinglelineJava">
             <property name="format" value="\s+$"/>
-            <message>Trailing whitespace</message>
         </module>
     </module>
 </module>
