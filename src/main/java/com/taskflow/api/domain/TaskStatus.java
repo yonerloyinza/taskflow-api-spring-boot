@@ -1,5 +1,8 @@
 package com.taskflow.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * Estado de una tarea del ecosistema TaskFlow. Coincide con los valores del
  * tipo enumerado {@code TaskStatus} de la base de datos y del contrato OpenAPI.
@@ -37,6 +40,7 @@ public enum TaskStatus {
      *
      * @return representacion en base de datos
      */
+    @JsonValue
     public String getValor() {
         return valor;
     }
@@ -48,6 +52,7 @@ public enum TaskStatus {
      * @return estado de tarea equivalente
      * @throws IllegalArgumentException si el valor no es valido
      */
+    @JsonCreator
     public static TaskStatus fromValor(final String valor) {
         for (final TaskStatus status : values()) {
             if (status.valor.equals(valor)) {

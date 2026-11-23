@@ -23,6 +23,8 @@ spring:
       idle-timeout: 300000
       connection-timeout: 20000
       leak-detection-threshold: 60000
+      data-source-properties:
+        stringtype: unspecified
 
   jpa:
     hibernate:

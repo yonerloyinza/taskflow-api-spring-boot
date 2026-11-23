@@ -1,5 +1,8 @@
 package com.taskflow.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 /**
  * Prioridad de una tarea del ecosistema TaskFlow. Coincide con los valores del
  * tipo enumerado {@code TaskPriority} de la base de datos y del contrato OpenAPI.
@@ -37,6 +40,7 @@ public enum TaskPriority {
      *
      * @return representacion en base de datos
      */
+    @JsonValue
     public String getValor() {
         return valor;
     }
@@ -48,6 +52,7 @@ public enum TaskPriority {
      * @return prioridad de tarea equivalente
      * @throws IllegalArgumentException si el valor no es valido
      */
+    @JsonCreator
     public static TaskPriority fromValor(final String valor) {
         for (final TaskPriority priority : values()) {
             if (priority.valor.equals(valor)) {
