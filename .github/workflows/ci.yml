@@ -8,7 +8,6 @@ on:
 
 env:
   JAVA_VERSION: '21'
-  MAVEN_VERSION: '3.9'
 
 jobs:
   lint-and-test:
@@ -19,16 +18,14 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: ${{ env.JAVA_VERSION }}
           cache: 'maven'
 
-      - name: Setup Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: ${{ env.MAVEN_VERSION }}
+      - name: Show Maven version
+        run: mvn -version
 
       - name: Run Checkstyle
         run: mvn checkstyle:check
@@ -45,16 +42,14 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: ${{ env.JAVA_VERSION }}
           cache: 'maven'
 
-      - name: Setup Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: ${{ env.MAVEN_VERSION }}
+      - name: Show Maven version
+        run: mvn -version
 
       - name: Build Application
         run: mvn package -DskipTests
