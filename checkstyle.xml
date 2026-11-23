@@ -10,11 +10,7 @@
 
     <module name="TreeWalker">
         <module name="JavadocType"/>
-        <module name="JavadocMethod">
-            <property name="allowMissingParamTags" value="true"/>
-            <property name="allowMissingThrowsTags" value="true"/>
-            <property name="allowMissingReturnTag" value="true"/>
-        </module>
+        <module name="JavadocMethod"/>
         <module name="JavadocVariable"/>
 
         <module name="ConstantName"/>
